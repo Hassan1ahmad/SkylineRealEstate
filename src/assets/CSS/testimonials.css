@@ -1,0 +1,120 @@
+.ttmls-wrapper{
+    background: rgba(239, 242, 247, 0.60);
+    display: flex;
+    padding-top: 40px;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.ttmls-text{
+    width: 500px;
+    height: 223px;
+    flex-shrink: 0;
+    padding-left: 18px;
+}
+.ttmls-text p {
+    color: #010101;
+    font-family: poppins;
+    font-size: 62.42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 111.023%; /* 77.072px */
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+.ttmls-text p span {
+    color: #0EC6D5;
+    font-family: poppins;
+    font-size: 69.42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 111.023%;
+    letter-spacing: -3.818px;
+    text-transform: capitalize;
+}
+.ttmls-cards{
+    display: flex;
+}
+.ttmls-first-card{
+    width: 392px;
+    height: 332px;
+    flex-shrink: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 27px;
+    margin-left: 30px;
+}
+.ttmls-first-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ttmls-commas img{
+    width: 29px;
+    height: 28.023px;
+    flex-shrink: 0;
+}
+.desc{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.desc p{
+    color: #010101;
+    font-family: poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 146.523%; /* 26.374px */
+    text-align: justify;
+}
+.ttmls-last-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ttmls-name p:first-child{
+    color: #010101;
+    font-family: poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 146.523%; /* 26.374px */
+}
+.ttmls-name p:last-child{
+    color: #010101;
+    font-family: poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 146.523%; /* 21.978px */
+}
+
+
+@media (max-width:844px) {
+    .ttmls-wrapper{
+        display: block;
+    }
+    .ttmls-text{
+        width: 342px;
+        height: 170px;
+    }
+    .ttmls-text p{
+        font-size: 45px;
+    }
+    .ttmls-text p span{
+        font-size: 45px;
+    }
+    .ttmls-cards{
+        display: block;
+    }
+    .ttmls-first-card{
+        margin-left: 14px;
+        margin-bottom: 11px;
+        width: 330px;
+        height: auto;
+        padding: 15px;
+    }
+    .desc{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}

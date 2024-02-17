@@ -1,0 +1,117 @@
+.assist-wrapper{
+    background-color: #F7F7F7;
+    display: flex;
+    padding-bottom: 15px;
+}
+.assist-left{
+    padding: 28px;
+}
+.assist-head{
+    width: 542px;
+    height: 223px;  
+}
+.assist-head p:first-child{
+    color: #010101;
+    font-family: poppins;
+    font-size: 69.42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 111.023%; /* 77.072px */
+    letter-spacing: -3.818px;
+    text-transform: capitalize;
+}
+.assist-head p:last-child{
+    color: #0EC6D5;
+    font-family: Space Grotesk;
+    font-size: 69.42px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 111.023%;
+    letter-spacing: -3.818px;
+    text-transform: capitalize;
+}
+.assist-description{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.assist-button{
+    display: flex;
+    padding: 11px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 37px;
+    border-radius: 160px;
+    background: linear-gradient(0deg, #000 0%, #090808 100%);
+    color: #FFF;
+    font-family: poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 141.023%; /* 22.564px */
+    letter-spacing: -0.8px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.assist-button:hover{
+    background: linear-gradient(0deg, #383636 0%, #383636 100%);
+}
+.assist-description div:last-child{
+    padding-left: 10px;
+    width: 335px;
+    height: 62px;
+    color: #010101;
+    font-family: poppins,'Courier New', Courier, monospace;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 152.023%; /* 27.364px */
+}
+.assist-right{
+    padding: 34px 1px 0px 60px;
+    
+}
+.assist-right img{
+    width: 654px !important;
+    height: 391px;
+}
+
+
+
+
+@media (max-width:844px) {
+    .assist-wrapper{
+        display: block;
+        padding-top: 20px;
+    }
+    .assist-head{
+        width: 331px;
+        height: 133px;
+    }
+    .assist-head p:first-child{
+        font-size: 35.42px;
+        letter-spacing: 0.182px;
+    }
+    .assist-head p:last-child{
+        font-size: 52px;
+        letter-spacing: -0.818px;
+    }
+    .assist-description{
+        display: block;
+    }
+    .assist-button{
+        width: 192px;
+    }
+    .assist-description div:last-child{
+        width: 328px;
+        padding-top: 12px;
+    }
+    .assist-right{
+        padding: 18px 1px 0px 15px;
+    }
+    .assist-right img{
+        max-width: none;
+        width: 336px !important;
+        height: 242px;
+    }
+}

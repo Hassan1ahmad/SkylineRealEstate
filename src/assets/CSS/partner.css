@@ -1,0 +1,33 @@
+.partner-wrapper{
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+.partner-text{
+    text-align: center;
+    font-family:  poppins, monospace;
+}
+.partner-text p:first-child{
+    color: #0EC6D5;
+}
+.partner-text p:nth-child(2){
+    font-size: 30px;
+}
+.partner-text p:last-child{
+    color: #858484;
+}
+.partners-images{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    align-items: center;   
+}
+
+@media (max-width:844px) {
+    .partners-images{
+        grid-template-columns: repeat(2,2fr);
+    }
+    .partners-images img{
+        padding-top: 32px;
+    }
+}

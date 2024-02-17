@@ -1,0 +1,206 @@
+/* Updated CSS for the Navbar */
+
+.nav-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+  }
+  
+  .desktop-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+  }
+  .nav-brand{
+    padding-left: 198px;
+  }
+  
+  .nav-brand img {
+    width: 88px; 
+    height: auto;
+  }
+  
+  .nav-links ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links ul li {
+    margin-right: 30px;
+  }
+/*   
+  .nav-links ul li:last-child {
+    margin-right: 0;
+  } */
+  
+  .nav-links ul li  {
+    color: #000;
+    font-family: Rubik;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 7px;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+  .nav-links ul li:hover {
+    color: #EF5C2A; /* Adjust the hover color */
+  }
+  
+  /* Optional: Add some animation to the logo */
+  .nav-brand img {
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-brand img:hover {
+    transform: scale(1.1); /* Adjust the scale on hover */
+  }
+
+  .nav-seller {
+    font-family: poppins;
+    background-color: #EF5C2A;
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  /* Optional: Add hover effect */
+  .nav-seller:hover {
+    background-color: #d9450e; /* Adjust the hover background color */
+  }
+  .nav-sign{
+    margin-left: 50px;
+    font-family: poppins;
+    background-color: #0EC6D5;
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+  .mobile-navbar{
+    display: none;
+  }
+
+
+
+  @media (max-width:844px) {
+    .desktop-navbar{
+      display: none;
+    }
+    .mobile-navbar-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+    .mobile-navbar{
+      display: block;
+    }
+    .left-mobile-nav-brand{
+      padding-left: 10px;
+     }
+    .left-mobile-nav-brand img{
+      width: 88px; 
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .left-mobile-nav-brand img:hover {
+      transform: scale(1.1); /* Adjust the scale on hover */
+    }
+    .nav-seller{
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+    .right-content{
+      display: flex;
+      align-items: center;
+    }
+    .humburger{
+      padding: 18px;
+      font-size: 24px;
+    }
+    .humburger-menu{
+      height: 600px;
+      width: 70%;
+      background-color: #EF5C2A;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      display: none;
+
+    }
+    .user-container{
+      background-color: #d9450e;
+      height: 100px;
+      padding-top:20px ;
+      padding-left: 9px;
+    }
+    .user-container:first-child{
+      color: #FFF;
+      font-family: poppins;
+      font-size: 20px;
+      font-style: normal;
+      line-height: normal;
+    }
+            /* Styles for auth buttons */
+    .auth-buttons {
+      height: 100px;
+      background-color: #d9450e;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-buttons button {
+      width: 96%;
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      background-color: #EF5C2A; /* Adjust background color as needed */
+      color: #fff; /* Adjust text color as needed */
+      cursor: pointer;
+    }
+    .mobile-nav-links ul{
+      list-style: none;
+    }
+    .mobile-nav-links ul li{
+      color: white;
+      font-family: poppins;
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration: none;
+      padding-top: 20px;
+      margin-left: 10px;
+      border-bottom: 1px solid #4E4E4E;;
+    }
+    .mobile-nav-links ul li:hover{
+      color: #d9450e;
+    }
+    .mobile-display{
+      display: block;
+      animation: slideDown 0.5s ease;
+
+      }
+      @keyframes slideDown {
+        from {
+          width: 0; /* Start with no width */
+          min-width: 0; /* Set min-width to 0 */
+        }
+        to {
+          width: 70%; /* Increase width to 70% */
+          min-width: 70%; /* Set min-width to 70% */
+        }
+      }
+  
+  }
+  

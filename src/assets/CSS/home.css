@@ -1,0 +1,162 @@
+.home-wrapper{
+    background-image: url('../pictures/Dubai-Skyline-2\ 1.png') ;
+    width: 100%;
+    height: 607px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+.home-left-content{
+    padding-top: 130px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 822px;
+}
+.home-heading{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 122%; /* 78.08px */
+    letter-spacing: 2.24px;
+    text-transform: uppercase;
+    width: 822px;
+    flex-shrink: 0;
+}
+.home-description{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 158.5%; /* 38.04px */
+}
+.home-contact-us{
+    width: 440px;
+    height: 431px ;
+    background-color: white;
+
+
+
+}
+
+.home-form{
+    max-width: 440px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: poppins;
+}
+.home-right-content{
+    padding-top: 105px;
+    padding-left: 50px;
+}
+
+.first-line-input{
+    display: flex;
+    padding-top: 10px;
+}
+
+.first-line-input input{
+    font-family: poppins;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #E5E5E5 ;
+    width: 180px;
+}
+
+.form-control{
+    width: 200px !important;
+}
+.home-input-email{
+    width: 385px;
+    font-family: poppins;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #E5E5E5 ;
+}
+.home-text-area{
+    font-family: poppins;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #E5E5E5 ;
+    width: 385px;
+
+}
+.checkbox-lable{
+    font-size: 15px;
+    color: #757575;
+}
+.home-submit{
+    width: 385px;
+    margin-top: 10px;
+    font-family: poppins;
+    height: 40px;
+    background-color: #0EC6D5;
+    color: white;
+    border: 1px solid #0EC6D5;
+    cursor: pointer;
+}
+.country-list{
+    width: 256px !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media (max-width:844px) {
+    .home-wrapper{
+        height: 730px  ;
+        display: block;
+    }
+    .home-left-content{
+        padding-top: 90px;
+        padding-left: 15px;
+        width: 304px;
+    }
+    .home-heading{
+        width: 344px;
+        font-size: 29px;
+    }
+    .home-description{
+        font-size: 16px;
+        width: 344px;
+    }
+    .home-right-content{
+        padding-left: 18px;
+        padding-top: 19px;
+    }
+    .home-form{
+        max-width: 330px;
+        padding: 12px;
+        margin: 0px;
+    }
+    .first-line-input input{
+        width: 145px;
+    }
+    .form-control{
+        width: 150px !important;
+    }
+    .home-input-email{
+        width: 304px;
+    }
+    .home-text-area{
+        width: 305px;
+        height: 80px;
+    }
+    .home-submit{
+        width: 304px;
+    }
+}
+
+

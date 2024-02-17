@@ -1,0 +1,13 @@
+.forSale-wrapper{
+    font-family: poppins,'Courier New', Courier, monospace;
+    background-color: #FFF;
+}
+.property-cardForProperties{
+    padding: 21px 50px;
+}
+
+@media (max-width:844px) {
+    .property-cardForProperties{
+        padding: 10px 30px;
+    }
+}

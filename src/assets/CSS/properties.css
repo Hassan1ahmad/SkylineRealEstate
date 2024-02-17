@@ -1,0 +1,102 @@
+
+.property-wrapper{
+  background-color: #FFF; 
+
+}
+.property-wrapper p{
+    font-family: 'poppins','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+  }
+  .dreams{
+    position: absolute;
+    top: 526px;
+    left: 550px;
+    color: white;
+  }
+
+
+  
+  .search-bar {
+    position: absolute;
+    top: 553px;
+    left: 163px;
+    background-color: white;
+    margin: 0 10px;
+    display: flex;
+   
+    align-items: center;
+    font-family: 'poppins','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+
+  }
+  
+  .property-type-search,
+  .property-listing-search,
+  .cityName-search {
+    border-right:1px solid #E5E5E5 ;
+    padding: 5px;
+    
+  }
+  
+  /* Style for each dropdown */
+  .select-dropdown {
+    padding: 8px;
+    width: 260px; 
+    cursor: pointer;
+  }
+  
+  /* Style for the search button */
+  .search-button {
+    background-color: #0EC6D5;
+    color: #FFF;
+    padding: 13px 45px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .property-Card-forAllProperties{
+    padding: 30px 50px;
+  }
+  .property-card-forSearchedProperties{
+    padding: 30px 50px;
+  }
+  .loader{
+    min-height: 400px;
+  }
+  .error-message{
+    color: red;
+    font-size: 20px;
+    font-family: poppins,'Courier New', Courier, monospace;
+    min-height: 300px;
+
+  }
+  .slick-next:before,.slick-prev:before{
+    color: black;
+  }
+  
+@media (max-width:844px) {
+  .search-bar{
+    position: static;
+    margin: 0px 0px;
+
+  }
+  .select-dropdown{
+    padding: 8px;
+    width: 81px;
+    cursor: pointer;
+  }
+  .search-button{
+    padding: 13px 10px;
+
+  }
+  .label{
+    font-size: 12px;
+  }
+  .property-Card-forAllProperties{
+    padding: 7px 28px;
+  }
+  .dreams{
+    top: 698px;
+    left: 80px;
+  }
+  
+}
+
