@@ -1,9 +1,11 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import '../assets/CSS/signup.css'
 import axios from 'axios';
 import { TailSpin } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DashboardContext from "../context/dashboard/DashboardContext";
+
 
 function SignUp({apiForSignUp,navigateto}) {
   // loader
@@ -19,6 +21,10 @@ function SignUp({apiForSignUp,navigateto}) {
   /></div>
 
   const navigate = useNavigate();
+  
+  const context= useContext(DashboardContext)
+    const {setTokenError} = context 
+
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -59,16 +65,17 @@ function SignUp({apiForSignUp,navigateto}) {
             },
           })
           setLoading(false)
-        console.log(response.data)
         if (response.data.success===true) {
           Toast.fire({
             icon: "success",
             title: "Signed Up successfully"
           });
            navigate(navigateto) ; 
+           if (apiForSignUp==='/seller/signUp') {
+            setTokenError(false);  
+          }
         }
     } catch (error) {
-      console.log(error)
       if (error.response) {
         setError(error.response.data.errors);
     } else if (error.code) {

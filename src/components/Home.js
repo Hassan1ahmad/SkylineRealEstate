@@ -36,7 +36,7 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    number: '',
+    number: '', 
     email: '',
     description: '',
     consent: false,

@@ -237,6 +237,10 @@
       height: 88px;
       width: 130px;
     }
+    .viewproperty-form{
+      margin-left: 0px;
+      width: 320px;
+    }
     .viewproperty-form form{
       margin-left: 0px;
       width: 312px;

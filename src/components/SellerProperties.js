@@ -21,7 +21,6 @@ function SellerProperties() {
       const response = await axios.delete(`https://skylinerealestate-dibreg7o.b4a.run/api/listing/deletePorperty/${id}`,{
         withCredentials:true,
       })
-      const data = response
       if (response.status===200) {
         Swal.fire({
           title: "Deleted!",
@@ -30,10 +29,8 @@ function SellerProperties() {
         })
         fetchSellerProperties()
       }
-      console.log(data)
 
     } catch (error) {
-      console.log(error)
       Swal.fire({
         icon: "error",
         title: "Oops...",

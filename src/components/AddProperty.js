@@ -61,6 +61,8 @@ const propertyFeatures = [
   'Storage Room',
   'Garden',
   'Terrace',
+  'Parking Space',
+  'Outdoor Dining area',
 ];
 
 
@@ -127,7 +129,7 @@ function AddProperty() {
     const validateForm=()=>{
       setApiErrors(null)
       const errors={}
-      const numericFields = ['bedrooms', 'bathrooms', 'floors', 'price', 'builtArea'];
+      const numericFields = [ 'price', 'builtArea'];
        numericFields.forEach(field => {
     if (propertyDetail[field] <= 0) {
       errors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} should be greater than 0`;
@@ -515,7 +517,6 @@ function AddProperty() {
                  name="title"
                  id="title"
                  required
-                 pattern="[A-Za-z]+"
                  title="Please enter only alphabets"
                  value={propertyDetail.title}
                  onChange={(e)=>{setPropertyDetail({...propertyDetail, title:e.target.value})}}

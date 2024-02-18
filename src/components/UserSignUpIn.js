@@ -2,9 +2,11 @@ import React,{useState} from 'react'
 import '../assets/CSS/signupIn.css'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function UserSignUpIn({apiForSignUp,apiForSignIn,navigate}) {
+
+  const Navigate = useNavigate()
   const [showSignIn, setshowSignIn] = useState(true)
   const handleSignIn =()=>{
     setshowSignIn(!showSignIn)
@@ -19,7 +21,7 @@ function UserSignUpIn({apiForSignUp,apiForSignIn,navigate}) {
             </div> 
             <div className="user-right">
               {showSignIn? (<><div className='flex justify-between'>
-                                <Link to="/"><p className='user-text'><span>Go Back</span></p></Link> 
+                               <p onClick={()=>{Navigate('/')}} className='user-text'><span>Go Back</span></p>
                                 <p className='user-text' > Don’t have an account?<span onClick={handleSignIn}>Sign Up!</span></p>
                               </div>
               <div className="user-signin-comp">

@@ -69,14 +69,15 @@
 
 @media (max-width: 767px) {
     .profile-wrapper{
-        width: 85%;
-        margin-left: 54px;
+        width: 91%;
+        margin-left: 29px;
         margin-top: 4px;
         height: 99%;
         padding: 5px;
     }
     .editProfile-form{
         height: 100%;
+        margin-left: 34px;
     }
     .editProfile-form::-webkit-scrollbar {
         width: 5px;
@@ -98,7 +99,7 @@
         width: 290px;
     }
     .profile-contact{
-        margin-left: 2px;
+        margin-left: 23px;
         width: 290px;
         height: 230px;
     }

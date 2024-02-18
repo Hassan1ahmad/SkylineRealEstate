@@ -8,8 +8,7 @@ import '../assets/CSS/viewproperty.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { TailSpin } from 'react-loader-spinner';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+
 
 
 // toast
@@ -104,7 +103,7 @@ function ViewPropertyCard({ setIsModelOpen,propertyInfo }) {
 // showmore logic
   const [showMore, setShowMore] = useState(false);
   const toggleShowMore = () => {
-    setShowMore(!showMore);
+    setShowMore(!showMore); 
   };
   const description = propertyInfo.description
 
@@ -191,42 +190,22 @@ function ViewPropertyCard({ setIsModelOpen,propertyInfo }) {
     setIsModelOpen(false);
   };
 
-  const navigate = useNavigate()
 
 
   const handleVirtualGuide=()=>{
-    let token = Cookies.get('token')
-    if(!token){
-      Swal.fire({
-        title: "Please SignUp/Login for Virtual Guide request.",
-        showCancelButton: true,
-        confirmButtonText: "SignUp/Login",
-        customClass: {
-          container: 'custom-swal-container' // Define a custom class name
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate('/buyerAuth')
-        }
-      });
-      
-    }else{
-      setIsSent(true)
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Your request has been sent",
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          container: 'custom-swal-container' // Define a custom class name
-        }
-      });
-      setTimeout(() => {
-        setIsSent(false)
-      }, 2000);
-    }
-
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your request has been sent",
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        container: 'custom-swal-container' // Define a custom class name
+      }
+    });
+    setTimeout(() => {
+      setIsSent(false)
+    }, 2000);
   }
   return (
     <div className="viewproperty-background">

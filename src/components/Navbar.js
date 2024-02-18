@@ -1,20 +1,31 @@
-import React,{useState,useEffect } from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import '../assets/CSS/nav.css'
-import { Link } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import DashboardContext from "../context/dashboard/DashboardContext";
+import axios from 'axios'; 
+import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
+import {Link } from 'react-scroll';
 
 
 function Navbar() {
-
+ 
   const navigate = useNavigate()
+
+  const context= useContext(DashboardContext)
+  const {fetchSellerDetails} = context 
+
+  useEffect(() => {
+    fetchSellerDetails()
+    // eslint-disable-next-line
+  }, []);
+
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [buyerDetails, setBuyerDetails] = useState({});
   const [menuOpen, setMenuOpen] = useState(false);
+  const [tokenError, setTokenError] = useState(true);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -35,51 +46,59 @@ function Navbar() {
       const response = await axios.get('https://skylinerealestate-dibreg7o.b4a.run/api/buyers/buyerDetails',{
         withCredentials:true
       })
-      console.log(response.data.buyerDetails.username)
       if(response.status===200){
+        setTokenError(false)
         setBuyerDetails(response.data.buyerDetails)
       }
     } catch (error) {
-      
+      if (error.response && (error.response.status === 401 || error.response.status === 400)) {
+        const errorData = error.response.data;
+        if (errorData.error === 'unUnauthorized: No token provided' || errorData.error === 'Unauthorized: Invalid token') {
+          // If error is related to token, navigate to login page
+          setTokenError(true)
+        }
+      }else{
+        console.error('Error fetching seller details:', error);
+      }
     }
   }
-  let buyertoken = Cookies.get('token')
-  useEffect(() => {
-    if(buyertoken){
-      handleFetchBuyerDetails()
-    }
-    // eslint-disable-next-line
-  }, []);
 
   const checklogin=()=>{
-    let token = Cookies.get('sellerToken')
-    if(token){
       navigate('/dashboard/properties')
-    }else{
-      navigate('/sellerAuth')
-    }
-  }
-  const checkloginforbuyer=()=>{
-    if(buyertoken){
-      handleFetchBuyerDetails()
-    }else{
-      navigate('/buyerAuth')
-    }
   }
 
-  useEffect(() => {
-    let token= Cookies.get('token')
-    if (token) {
+  const checkloginforbuyer=()=>{
+    if (tokenError) {
+      navigate('/buyerAuth')
+    } else if(!tokenError) {
       setIsLoggedIn(true)
     }
-  }, []);
-
-  const handleLogOut=()=>{
-    Cookies.remove('token')
-    setBuyerDetails({})
-    setIsLoggedIn(false)
-  }
     
+  }
+  useEffect(() => {
+    handleFetchBuyerDetails()
+    if(!tokenError){
+      setIsLoggedIn(true)
+    }else if(tokenError){
+      setIsLoggedIn(false)
+    }
+  }, [tokenError]);
+  
+
+  const handleLogOut = async () => {
+    try {
+      await axios.get('https://skylinerealestate-dibreg7o.b4a.run/api/buyers/logout',{
+        withCredentials:true
+      });
+  
+      setBuyerDetails({});
+      setIsLoggedIn(false);
+      setTokenError(true);
+    } catch (error) {
+      console.error('Error while logging out:', error);
+      // Handle error as needed
+    }
+  };
   return (
     <div> 
       <div className="nav-wrapper backdrop-blur-md backdrop-brightness-125">
@@ -89,10 +108,18 @@ function Navbar() {
             </div>
             <div className="nav-links">
                 <ul>
-                    <li>Home</li>
-                    <li>About us</li> 
-                    <li>Sale</li>
-                    <li>Rent</li>
+                    <Link to='home' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li >Home</li>
+                    </Link>
+                    <Link to='about' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li >About us</li>
+                    </Link>
+                    <Link to='Sale' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li >Sale</li>
+                    </Link>
+                    <Link to='Rent' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li >Rent</li>
+                    </Link>
                  <button onClick={checklogin} className="nav-seller">Become a Seller</button>
                  {isLoggedIn? (
                  <div className="relative inline-block text-left ">
@@ -150,6 +177,7 @@ function Navbar() {
                 </ul>
             </div>
         </div>
+        {/* mobile */}
         <div className="mobile-navbar">
           <div className="mobile-navbar-wrapper">
             {/* left-content */}
@@ -162,23 +190,31 @@ function Navbar() {
           <div className="humburger"><i onClick={menuClicked} className="fa-solid fa-bars"></i></div>
           </div>
           <div className={`humburger-menu ${showMobileMenu===false? '' : 'mobile-display'}`} >
-          {!isLoggedIn ? (
+          {isLoggedIn ? (
             <div className="user-container">
-              <p>User Name</p>
-              <p>Liked Properties</p>
+              <p> <span className='text-black text-lg'><PersonIcon/></span> {buyerDetails.username}</p>
+              <p className='mt-3 ' onClick={handleLogOut}> <span className='text-black'><LogoutIcon/></span>  Log Out</p>
             </div>
           ) : (
             <div className="auth-buttons">
-              <Link to="/sellerAuth" ><button>Sign Up/in</button></Link>
+              <button onClick={checkloginforbuyer}>Sign Up/in</button>
               
             </div>
           )}
             <div className={`mobile-nav-links`}>
               <ul>
-                    <li>Home</li>
-                    <li>About us</li> 
-                    <li>Sale</li>
-                    <li>Rent</li>
+                    <Link to='home' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li onClick={()=>setShowMobileMenu(false)} >Home</li>
+                    </Link>
+                    <Link to='about' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li onClick={()=>setShowMobileMenu(false)}>About us</li>
+                    </Link>
+                    <Link to='Sale' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li onClick={()=>setShowMobileMenu(false)}>Sale</li>
+                    </Link>
+                    <Link to='Rent' spy={true} smooth={true} offset={-50} duration={500} >
+                    <li onClick={()=>setShowMobileMenu(false)}>Rent</li>
+                    </Link>
               </ul>
             </div>
           </div>

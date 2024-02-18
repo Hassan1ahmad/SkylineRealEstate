@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import { TailSpin } from 'react-loader-spinner'
 import '../assets/CSS/signup.css'
 import '../assets/CSS/signin.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import DashboardContext from "../context/dashboard/DashboardContext";
+
 
 
 function SignIn({apiForSignIn,navigateto}) {
@@ -21,6 +23,9 @@ function SignIn({apiForSignIn,navigateto}) {
     /></div>
 
     const navigate = useNavigate();
+
+    const context= useContext(DashboardContext)
+    const {setTokenError} = context 
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState([]);
@@ -55,13 +60,15 @@ function SignIn({apiForSignIn,navigateto}) {
                   },
                 })
                 setLoading(false)
-        console.log(response.data)
         if (response.data.success===true) {
           Toast.fire({
             icon: "success",
             title: "Signed in successfully"
           });
-          navigate(navigateto) ; 
+          navigate(navigateto);
+          if (apiForSignIn==='/seller/logIn') {
+            setTokenError(false);  
+          }
        }
         } catch (error) {
         if (error.response) {

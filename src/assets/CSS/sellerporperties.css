@@ -113,15 +113,16 @@
       margin-left: 55px;
       width: 300px;
       height: auto;
+      overflow: hidden;
     }
     .sellerproperties-table::-webkit-scrollbar {
-      width: 5px;
+      width: 5px; 
     }
     .sellerproperties-nav{
       font-size: 16px;
     }
     .sellerproperties-table{
-      height: 625px;
+      height:595px;
     }
     .sellerproperties-nav p {
       padding: 6px;

@@ -51,7 +51,6 @@ function Profile() {
             });
             
             // Handle response as needed
-            console.log(response);
             setFormLoading(false)
             
             if (response.status === 200) {
@@ -243,7 +242,7 @@ function Profile() {
                 </div>
                 </div>
         </div>
-        <div className="profile-contact p-5 pl-10 max-md:p-1 max-md:pl-2 max-md:mt-3">
+        <div className="profile-contact p-5 pl-10 max-md:p-1 max-md:pl-2 max-md:mt-3 ">
             {/* address */}
             <div>
                 <p className=' text-2xl max-md:text-xl '><span className='location text-slate-400'><FmdGoodIcon/></span> {details.homeAddress? details.homeAddress : 'Not set Yet'}</p>

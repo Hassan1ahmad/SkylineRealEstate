@@ -11,7 +11,8 @@ import HomeIcon from '@mui/icons-material/Home';
 // import axios from "axios";
 import { TailSpin } from "react-loader-spinner";
 import DashboardContext from "../context/dashboard/DashboardContext";
-import Cookies from "js-cookie";
+import axios from 'axios';
+
 
 
 
@@ -26,22 +27,31 @@ function LeftSideMenu() {
   
   // context Api
   const context= useContext(DashboardContext)
-  const {loading, sellerDetails, fetchSellerDetails,fetchSellerProperties,setError} = context
+  const {loading, sellerDetails, fetchSellerDetails,fetchSellerProperties,setError,tokenError} = context
 
-  // checking if user is is logged in
-  const checkUserlogin = () =>{
-    let token = Cookies.get('sellerToken')
-    if(!token) return navigate('/sellerAuth')
 
-  }
+
+
 
   useEffect(() => {
     setError(null)
-    checkUserlogin()
     fetchSellerDetails();
     fetchSellerProperties()
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    const handleTokenError = () => {
+      if(loading===false){
+        if (tokenError) {
+          navigate('/sellerAuth'); 
+        }
+      };
+
+      }
+  
+    handleTokenError();
+  }, [tokenError, navigate,loading]);
   
   
 
@@ -52,6 +62,19 @@ function LeftSideMenu() {
   const imageUrl =  
     "https://firebasestorage.googleapis.com/v0/b/skylinerealestate-6660c.appspot.com/o/skyline-images%2Fanonymous_avatars_grey_circles.jpg?alt=media&token=9d1c9c6e-6281-41e0-8849-fb35ae6d7702";
 
+    const handleLogOut = async () => {
+      try {
+        await axios.get('https://skylinerealestate-dibreg7o.b4a.run/api/seller/logout',{
+          withCredentials:true
+        });
+           navigate('/')
+      } catch (error) {
+        console.error('Error while logging out:', error);
+        // Handle error as needed
+      }
+    };
+
+ 
   return (
     <>
       {loading? (<div className="leftMenu-wrapper flex items-center justify-center"> 
@@ -70,6 +93,7 @@ function LeftSideMenu() {
        {/* for pc */}
        <div className="leftMenu-wrapper flex flex-col	justify-between	  ">
          <div className="leftMenu-sellerInfo">
+        
            <div className="sellerImg px-11 py-3">
              <img src={sellerDetails.profilePhoto?.url? sellerDetails.profilePhoto?.url : imageUrl} alt="" />
            </div>
@@ -100,7 +124,7 @@ function LeftSideMenu() {
          <div>
          <ul className="menu-listItems">
                  <li  className="text-darkWhite" onClick={()=>{navigate('/')}}><HomeIcon/>Back To Home</li>
-                 <li onClick={()=>{Cookies.remove('sellerToken');navigate('/')}} className="text-darkWhite"><LogoutIcon />LogOut</li>
+                 <li onClick={handleLogOut} className="text-darkWhite"><LogoutIcon />LogOut</li>
                </ul>
          </div>
        </div>
@@ -114,10 +138,10 @@ function LeftSideMenu() {
              {/*image  */}
              <div>
              <div className={`sellerImg ${expanded ? 'expanded' : ''} `}>
-               <img src={imageUrl} alt="" />
+               <img  src={sellerDetails.profilePhoto?.url? sellerDetails.profilePhoto?.url : imageUrl} alt="" />
              </div>
              {expanded &&  <div className="text-white font-Quicksand text-center ">
-               <p className="text-lgtracking-wide font-bold">{sellerDetails?.userName}</p>
+               <p className="text-lg  font-bold">{sellerDetails?.username}</p>
                <p className="text-darkWhite">{sellerDetails.userType? sellerDetails.userType : 'Not Set yet'}</p>
              </div>}
              
@@ -140,8 +164,8 @@ function LeftSideMenu() {
              {/* logout */}
              <div className="logout">
                <ul className="menu-listItems">
-                <li><HomeIcon/>Back To Home</li>
-                 <li className="text-darkWhite"><LogoutIcon /> {expanded && "Log Out"}</li>
+                <li onClick={()=>{navigate('/')}} className="text-darkWhite" ><HomeIcon/>{expanded && 'Back To Home'}</li>
+                 <li onClick={handleLogOut} className="text-darkWhite"><LogoutIcon /> {expanded && "Log Out"}</li>
                </ul>
              </div>
            </div>

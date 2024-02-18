@@ -14,22 +14,30 @@ import AddProperty from './components/AddProperty';
 import Profile from './components/Profile';
 import DashState from './context/dashboard/DashState';
 import SaleAndRent from './components/SaleAndRent';
+import { Element } from 'react-scroll';
+
  
-const home = <>
+
+
+function App() {
+  const home = <>
   <Navbar/>
-      <Home/>
+    <Element name='home' className='element'>
+    <Home/>
+    </Element>
+    
       <Properites/>
       <AssistBuyer/>
       <SaleAndRent/>
+      <Element name='about' className='element'>
       <Testimonials/>
+      </Element>
       <Partners/>
       <Footer/>
   </>
-
-function App() {
   return (
     <div className="App">
-      <DashState>
+      <DashState> 
       <BrowserRouter>
       <Routes>
         <Route path='/' element={home} />
