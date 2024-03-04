@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Skyline Real Estate MERN Stack App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Skyline Real Estate, a modern web application built with the MERN (MongoDB, Express.js, React.js, Node.js) stack. Skyline Real Estate allows users to browse various properties available for sale or rent, search for their dream property, and provides a dashboard for sellers to manage their listings.
 
-## Available Scripts
+LIVE at : https://skylinerealestate.netlify.app/
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Property Listings**: View all available properties for sale or rent.
+- **Search Functionality**: Easily search for properties based on location, price range, size, and other criteria.
+- **Seller Dashboard**: Sellers can create an account and access their dashboard.
+- **Account Approval**: Sellers' accounts require approval before they can add properties.
+- **Property Management**: Sellers can add new properties, view pending, approved, and declined properties.
+- **Approval Workflow**: Newly added properties go through an approval process before being displayed on the website.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run Skyline Real Estate locally, follow these steps:
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone https://github.com/your-username/skyline-real-estate.git
+```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+cd skyline-real-estate
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies for both client and server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+cd client
+npm install
+cd ../server
+npm install
+```
 
-### `npm run eject`
+4. Set up environment variables:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   - Create a `.env` file in the `server` directory.
+   - Define the following variables:
+     ```
+     PORT=5000
+     MONGODB_URI=<Your MongoDB connection URI>
+     ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+cd ../client
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. Open your browser and navigate to `http://localhost:3000` to view the app.
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **MongoDB**: Database for storing property and user data.
+- **Express.js**: Backend framework for handling HTTP requests.
+- **React.js**: Frontend library for building user interfaces.
+- **Node.js**: JavaScript runtime for building server-side applications.
+- **Tailwind CSS**: CSS framework for responsive design and styling.
+- **JWT Authentication**: Securing routes and authenticating users.
+- **Axios**: HTTP client for making requests to the server.
+- **React Router**: Handling navigation within the app.
+- **Mongoose**: MongoDB object modeling tool for Node.js.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgments
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to contribute to the project by submitting bug reports, feature requests, or pull requests. Happy browsing  with Skyline Real Estate! 🏠✨
