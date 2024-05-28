@@ -89,12 +89,12 @@ function Home() {
         <div className="home-heading">
         Unlock the door to your ideal home
         </div>
-        <div className="home-description">
+        <div className="home-description"> 
         Browse, explore, and find the perfect property with our innovative website. Seamlessly connect with sellers, agents, and a vibrant community of home seekers. <br /> Your dream home awaits!
         </div>
       </div>
       <div className="home-right-content">
-        <div className="home-contact-us">
+        <div className="">
           {/* form */}
           {loading? (
             <div className='home-contact-us flex justify-center items-center'>

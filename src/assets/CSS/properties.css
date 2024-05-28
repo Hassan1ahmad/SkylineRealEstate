@@ -71,16 +71,21 @@
   .slick-next:before,.slick-prev:before{
     color: black;
   }
+
+
+
   
 @media (max-width:844px) {
   .search-bar{
     position: static;
     margin: 0px 0px;
+    width: 100vw;
+    justify-content: space-between;
 
   }
   .select-dropdown{
-    padding: 8px;
-    width: 81px;
+    padding: 0vw;
+    width: 24.5vw;
     cursor: pointer;
   }
   .search-button{
@@ -95,7 +100,7 @@
   }
   .dreams{
     top: 698px;
-    left: 80px;
+    left: 24vw;
   }
   
 }

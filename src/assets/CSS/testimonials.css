@@ -89,12 +89,13 @@
 }
 
 
+
 @media (max-width:844px) {
     .ttmls-wrapper{
         display: block;
     }
     .ttmls-text{
-        width: 342px;
+        width: 95vw;
         height: 170px;
     }
     .ttmls-text p{
@@ -109,7 +110,7 @@
     .ttmls-first-card{
         margin-left: 14px;
         margin-bottom: 11px;
-        width: 330px;
+        width: 93vw;
         height: auto;
         padding: 15px;
     }

@@ -84,9 +84,12 @@
         display: block;
         padding-top: 20px;
     }
+    .assist-left{
+        padding: 15px;
+    }
     .assist-head{
-        width: 331px;
-        height: 133px;
+        width: 87vw;
+        height: auto;
     }
     .assist-head p:first-child{
         font-size: 35.42px;
@@ -98,20 +101,21 @@
     }
     .assist-description{
         display: block;
+        padding-top: 10px;
     }
     .assist-button{
         width: 192px;
     }
     .assist-description div:last-child{
-        width: 328px;
-        padding-top: 12px;
+        width: 87vw;
+        padding-top: 10px;
     }
     .assist-right{
         padding: 18px 1px 0px 15px;
     }
     .assist-right img{
         max-width: none;
-        width: 336px !important;
+        width: 90vw !important;
         height: 242px;
     }
 }

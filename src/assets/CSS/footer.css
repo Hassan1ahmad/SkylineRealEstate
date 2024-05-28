@@ -127,7 +127,7 @@
     padding: 5px 15px;
   }
   .footer-text{
-    width: 327px;
+    width: 90vw;
     text-align: justify;
     margin-top: 0px;
   }
@@ -148,7 +148,7 @@
   .footer-coloumn1,
   .footer-coloumn2,
   .footer-coloumn3{
-    margin-right: 21px;
+    margin-right: 10vw;
   }
   .footer-coloumn1 li,
   .footer-coloumn2 li,
